@@ -1,0 +1,77 @@
+function pwa_plot(pwasys)
+
+if size(pwasys.X,2)==1,
+    figure(20);
+    plot(pwasys.X,pwasys.Y);
+    title('PWA Approximation');
+    xlabel('xNL');
+    figure(30);
+    nm = sqrt(length(pwasys.W));
+    plot(pwasys.W,pwasys.Z);
+    title('Nonlinear Function');
+    xlabel('xNL');
+    figure(40);
+    plot(pwasys.W,pwasys.Err);
+    title('Approximation Error');
+    xlabel('xNL');
+elseif size(pwasys.X,2)==2 && size(pwasys.Y,2)==1,
+    figure(10);
+    triplot(pwasys.T,pwasys.X(:,1),pwasys.X(:,2));
+    title('Polytopic Regions');
+    xlabel('x_1');
+    ylabel('x_2');
+    figure(20);
+    trimesh(pwasys.T,pwasys.X(:,1),pwasys.X(:,2),pwasys.Y);
+    title('PWA Approximation');
+    xlabel('x_1');
+    ylabel('x_2');
+    figure(30);
+    nm = sqrt(length(pwasys.W));
+    surface(reshape(pwasys.W(:,1),nm,nm),reshape(pwasys.W(:,2),nm,nm),reshape(pwasys.Z,nm,nm));
+    title('Nonlinear Function');
+    xlabel('x_1');
+    ylabel('x_2');
+    figure(40);
+    mesh(reshape(pwasys.W(:,1),nm,nm),reshape(pwasys.W(:,2),nm,nm),reshape(pwasys.Err,nm,nm));
+    title('Approximation Error');
+    xlabel('x_1');
+    ylabel('x_2');
+elseif size(pwasys.X,2)==2 && size(pwasys.Y,2)==2,
+    figure(10);
+    triplot(pwasys.T,pwasys.X(:,1),pwasys.X(:,2));
+    title('Polytopic Regions');
+    xlabel('x_1');
+    ylabel('x_2');
+    figure(20);
+    trimesh(pwasys.T,pwasys.X(:,1),pwasys.X(:,2),pwasys.Y(:,1));
+    title('PWA Approximation');
+    xlabel('x_1');
+    ylabel('x_2');
+    figure(25);
+    trimesh(pwasys.T,pwasys.X(:,1),pwasys.X(:,2),pwasys.Y(:,2));
+    title('PWA Approximation');
+    xlabel('x_1');
+    ylabel('x_2');
+    figure(30);
+    nm = sqrt(length(pwasys.W));
+    mesh(reshape(pwasys.W(:,1),nm,nm),reshape(pwasys.W(:,2),nm,nm),reshape(pwasys.Z(:,1),nm,nm));
+    title('Nonlinear Function');
+    xlabel('x_1');
+    ylabel('x_2');
+    figure(35);
+    nm = sqrt(length(pwasys.W));
+    mesh(reshape(pwasys.W(:,1),nm,nm),reshape(pwasys.W(:,2),nm,nm),reshape(pwasys.Z(:,2),nm,nm));
+    title('Nonlinear Function');
+    xlabel('x_1');
+    ylabel('x_2');
+    figure(40);
+    mesh(reshape(pwasys.W(:,1),nm,nm),reshape(pwasys.W(:,2),nm,nm),reshape(pwasys.Err(:,1),nm,nm));
+    title('Approximation Error');
+    xlabel('x_1');
+    ylabel('x_2');
+    figure(45);
+    mesh(reshape(pwasys.W(:,1),nm,nm),reshape(pwasys.W(:,2),nm,nm),reshape(pwasys.Err(:,2),nm,nm));
+    title('Approximation Error');
+    xlabel('x_1');
+    ylabel('x_2');
+end
