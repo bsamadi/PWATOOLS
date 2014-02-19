@@ -1,6 +1,6 @@
-# Tools for Piecewise Affine Systems
+# Computational Tools for Piecewise Affine Systems
 
-PWATOOL is a set of tools for stability analysis and controller synthesis for piecewise affine (PWA) systems.
+PWATOOL is a set of tools for the analysis and design of piecewise affine (PWA) systems with the following capablities:
 - approximation of nonlinear systems by PWA systems
 - stability analysis of PWA systems 
 - controller synthesis for PWA systems
